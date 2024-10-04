@@ -40,7 +40,7 @@ const Login = () => {
     console.log(email, password);
     signIn(email, password)
       .then((result) => {
-        console.log(result.message);
+        // console.log(result.message);
         Swal.fire({
           title: "Login",
           text: "Login SuccessFul",
