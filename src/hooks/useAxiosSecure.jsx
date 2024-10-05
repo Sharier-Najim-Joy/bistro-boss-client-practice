@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
@@ -33,10 +33,12 @@ const useAxiosSecure = () => {
       const status = error.status;
       // console.log(status);
       // for 401 and 403 logout the user and move to the user to login
-      if (status === 401 || status === 403) {
-        await logOut();
-        navigate("/login");
-      }
+      useEffect(() => {
+        if (status === 401 || status === 403) {
+          logOut();
+          navigate("/login");
+        }
+      }, []);
       return Promise.reject(error);
     }
   );

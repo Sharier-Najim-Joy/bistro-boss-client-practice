@@ -14,7 +14,7 @@ const AddItems = () => {
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     // image upload an imgBB and than get an url
     const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -22,7 +22,7 @@ const AddItems = () => {
         "content-type": "multipart/form-data",
       },
     });
-    console.log(res.data);
+    // console.log(res.data);
     if (res.data.success) {
       // now send the menu item data to the server with image url
       const menuItem = {
@@ -33,7 +33,7 @@ const AddItems = () => {
         price: parseFloat(data.price),
       };
       const menuRes = await axiosSecure.post("/menu", menuItem);
-      console.log(menuRes.data);
+      // console.log(menuRes.data);
       if (menuRes.data.insertedId) {
         reset();
         Swal.fire({

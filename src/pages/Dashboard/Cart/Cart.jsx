@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import SectionTittle from "../../../components/SectionTittle/SectionTittle";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
@@ -38,6 +39,9 @@ const Cart = () => {
 
   return (
     <>
+      <Helmet>
+        <title>BISTRO | My Cart</title>
+      </Helmet>
       <SectionTittle
         heading={"My Carts"}
         subHeading={"WANNA ADD MORE?"}

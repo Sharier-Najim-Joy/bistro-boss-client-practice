@@ -16,6 +16,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+import { Helmet } from "react-helmet-async";
 
 const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
@@ -93,6 +94,9 @@ const AdminHome = () => {
 
   return (
     <div className="px-6 py-7">
+      <Helmet>
+        <title>BISTRO | Admin Home</title>
+      </Helmet>
       <h2 className="text-4xl font-bold">
         <span>Hi, Welcome </span>
         {user?.displayName ? user?.displayName : "back"}

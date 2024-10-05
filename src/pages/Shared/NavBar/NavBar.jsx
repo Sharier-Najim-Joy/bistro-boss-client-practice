@@ -7,7 +7,7 @@ import useAdmin from "../../../hooks/useAdmin";
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
-  const { isAdmin } = useAdmin();
+  const [isAdmin] = useAdmin();
   // console.log(user);
   const navigate = useNavigate();
   const [cart] = useCart();
@@ -31,7 +31,7 @@ const NavBar = () => {
         <NavLink to={"/order/salad"}>Order</NavLink>
       </li>
 
-      {user && isAdmin && (
+      {user && isAdmin === true && (
         <li>
           <NavLink to={"/dashboard/adminHome"}>Dashboard</NavLink>
         </li>
